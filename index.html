@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/daisyui@5"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@300;400;500;600;700&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+      integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link rel="shortcut icon" href="assets/logo.png" />
+    <link rel="stylesheet" href="style.css" />
+    <title>English Janala</title>
+  </head>
+  <body>
+    <header>
+      <div class="navbar bg-base-100 shadow-sm px-0 md:px-20">
+        <div class="navbar-start">
+          <div class="dropdown">
+            <div tabindex="0" role="button" class="btn btn-ghost lg:hidden">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                class="h-5 w-5"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M4 6h16M4 12h8m-8 6h16"
+                />
+              </svg>
+            </div>
+            <ul
+              tabindex="0"
+              class="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow"
+            >
+              <li>
+                <a class=""
+                  ><span><i class="fa-solid fa-circle-question"></i></span
+                  >FAQ</a
+                >
+              </li>
+              <li>
+                <a class=""
+                  ><span><i class="fa-solid fa-book-open"></i></span>Learn</a
+                >
+              </li>
+              <li>
+                <a class=""
+                  ><span
+                    ><i class="fa-solid fa-arrow-right-from-bracket"></i></span
+                  >Logout</a
+                >
+              </li>
+            </ul>
+          </div>
+          <a class="text-xl flex gap-1 items-center font-bold"
+            >English <span><img src="assets/logo.png" alt="" /></span>
+            <p class="bangla-font">জানালা</p></a
+          >
+        </div>
+        <div class="navbar-end hidden lg:flex">
+          <ul class="menu menu-horizontal px-1 gap-3">
+            <li>
+              <a class="btn btn-outline btn-primary"
+                ><span><i class="fa-solid fa-circle-question"></i></span>FAQ</a
+              >
+            </li>
+            <li>
+              <a class="btn btn-outline btn-primary"
+                ><span><i class="fa-solid fa-book-open"></i></span>Learn</a
+              >
+            </li>
+            <li>
+              <a class="btn btn-outline btn-primary"
+                ><span
+                  ><i class="fa-solid fa-arrow-right-from-bracket"></i></span
+                >Logout</a
+              >
+            </li>
+          </ul>
+        </div>
+      </div>
+    </header>
+
+    <!-- banner section start -->
+    <section
+      class="flex flex-col-reverse md:flex-row items-center justify-betweens md:gap-5 mx-auto md:px-20 pt-10 md:pt-20 mb-10"
+    >
+      <div class="w-full md:w-1/2 px-5 md:px-0">
+        <h2 class="font-bold text-3xl mb-8">
+          <span class="text-blue-600">English</span> is Easy!!
+        </h2>
+        <p class="mb-8">
+          আজ থেকেই আপনার ভাষা শেখার যাত্রা শুরু করুন। আপনি যদি নতুন হন অথবা
+          আপনার দক্ষতা বাড়াতে চান, আমাদের Interactive Lessons আপনাকে নিয়ে যাবে
+          অন্য একটি Level এ
+        </p>
+        <div class="flex flex-col justify-start mb-8 gap-4">
+          <input type="text" placeholder="Enter Your Name" class="input" />
+          <input type="text" placeholder="Enter Your Password" class="input" />
+          <button class="btn btn-primary w-30">Get Started</button>
+        </div>
+      </div>
+
+      <!-- right side section -->
+      <div class="w-full md:w1/2 mb-8 md:mb-0 px-3 md:p-0">
+        <div class="flex justify-end">
+          <img class="w-[500px]" src="assets/hero-student.png" alt="" />
+        </div>
+      </div>
+    </section>
+    <!-- banner section end -->
+
+    <!-- lesson section start -->
+    <section>
+      <div class="p-5 md:py-10">
+        <h2 class="text-3xl font-bold text-center py-5">
+          <span class="text-blue-600">Let's</span> Learn Vocabularies
+        </h2>
+          <div
+            id="level-container"
+            class="flex justify-center flex-wrap md:flex-row gap-5 py-5"
+          >
+            <!-- JSON data import here -->
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- lesson section Ends -->
+
+    <section
+      id="word-container"
+      class="bg-gray-100 p-10 w-11/12 mx-auto mb-10 grid grid-cols-3 gap-5 rounded-xl"
+    >
+    <!-- JSON data import here -->
+
+    <div class="text-center bg-center col-span-full" >
+          <p class="text-gray-600 text-sm">
+            আপনি এখনো কোন Lesson Select করেন নি
+          </p>
+          <h2 class="text-3xl py-3">একটি Lesson Select করুন।</h2>
+    </div>
+    </section>
+
+    <!-- Open the modal using ID.showModal() method -->
+      <!-- <button class="btn" onclick="my_modal_5.showModal()">open modal</button> -->
+      <dialog id="word_modal" class="modal modal-bottom sm:modal-middle">
+        <div class="modal-box">
+          <div id="details-container">
+              
+          </div>
+          <div class="modal-action">
+            <form method="dialog">
+              <!-- if there is a button in form, it will close the modal -->
+              <button class="btn btn-primary">Continue Reading</button>
+              <button class="btn">Close</button>
+            </form>
+          </div>
+        </div>
+      </dialog>
+
+    <script src="script/index.js"></script>
+  </body>
+</html>
