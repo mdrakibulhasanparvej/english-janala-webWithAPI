@@ -146,6 +146,24 @@
     </section>
     <!-- lesson section Ends -->
 
+    <!-- search button start -->
+      <div class="join pb-10 flex justify-center">
+        <div>
+          <label class="input validator join-item">
+            <i class="fa-solid fa-magnifying-glass"></i>
+            <input id="btn-input" type="text" placeholder="Search Here" required />
+          </label>
+          <div class="validator-hint hidden">Search Here</div>
+        </div>
+        <button id="btn-search" class="btn btn-primary join-item">Search</button>
+      </div>
+    <!-- search button End -->
+
+    <section id="spinner" class="flex justify-center items-center pb-10 hidden">
+          <span class="loading loading-bars loading-xl"></span>  
+    </section>
+     
+
     <section
       id="word-container"
       class="bg-gray-100 p-10 w-11/12 mx-auto mb-10 grid grid-cols-1 md:grid-cols-3 gap-5 rounded-xl"

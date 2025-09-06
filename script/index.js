@@ -1,3 +1,18 @@
+const createElement = (arr) => {
+  const htmlElement = arr.map((el) => `<span class="btn">${el}</span>`);
+  return htmlElement.join(" ");
+};
+
+const manageSpiner = (status) => {
+  if (status == true) {
+    document.getElementById("spinner").classList.remove("hidden");
+    document.getElementById("word-container").classList.add("hidden");
+  } else {
+    document.getElementById("word-container").classList.remove("hidden");
+    document.getElementById("spinner").classList.add("hidden");
+  }
+};
+
 const loadLesson = () => {
   fetch("https://openapi.programming-hero.com/api/levels/all")
     .then((res) => res.json())
@@ -9,6 +24,7 @@ const activeRemove = () => {
   avtiveBtn.forEach((btn) => btn.classList.remove("active"));
 };
 const loadlevelWord = (id) => {
+  manageSpiner(true);
   const url = `https://openapi.programming-hero.com/api/level/${id}`;
   fetch(url)
     .then((res) => res.json())
@@ -63,16 +79,8 @@ const displywordDetail = (wdetails) => {
         </div>
         <div class="">
             <h2 class="text-lg font-bold">সমার্থক শব্দগুলো</h2>
-            <div>
-            <button class="btn">${
-              wdetails.synonyms[0] ? wdetails.synonyms[0] : "পাওয়া যায় নি"
-            }</button>
-            <button class="btn">${
-              wdetails.synonyms[1] ? wdetails.synonyms[1] : "পাওয়া যায় নি"
-            }</button>
-            <button class="btn">${
-              wdetails.synonyms[2] ? wdetails.synonyms[2] : "পাওয়া যায় নি"
-            }</button>
+            <div class="">
+            ${createElement(wdetails.synonyms)}
             </div>
         </div>
 
@@ -96,8 +104,9 @@ const displayLevelWord = (words) => {
           <h2 class="text-3xl py-3">নেক্সট Lesson এ যান</h2>
         </div>
     `;
+    manageSpiner(false);
+    return;
   }
-
   words.forEach((word) => {
     console.log(word);
     const card = document.createElement("div");
@@ -120,6 +129,7 @@ const displayLevelWord = (words) => {
     `;
     levelWordContainer.append(card);
   });
+  manageSpiner(false);
 };
 
 const displayData = (lesson) => {
@@ -139,3 +149,9 @@ const displayData = (lesson) => {
   }
 };
 loadLesson();
+
+document.getElementById("btn-search").addEventListener("click", () => {
+  const input = document.getElementById("btn-input");
+  const searchValue = input.value.trim().toLowerCase();
+  console.log(searchValue);
+});
