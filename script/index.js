@@ -1,3 +1,9 @@
+function pronounceWord(word) {
+  const utterance = new SpeechSynthesisUtterance(word);
+  utterance.lang = "en-EN"; // English
+  window.speechSynthesis.speak(utterance);
+}
+
 const createElement = (arr) => {
   const htmlElement = arr.map((el) => `<span class="btn">${el}</span>`);
   return htmlElement.join(" ");
@@ -123,7 +129,9 @@ const displayLevelWord = (words) => {
           <button onclick="loadWordDetail(${
             word.id
           })" class="btn"><i class="fa-solid fa-circle-info"></i></button>
-          <button class="btn"><i class="fa-solid fa-volume-high"></i></button>
+          <button onclick="pronounceWord('${
+            word.word
+          }')" class="btn"><i class="fa-solid fa-volume-high"></i></button>
         </div>
       </div>
     `;
@@ -151,7 +159,18 @@ const displayData = (lesson) => {
 loadLesson();
 
 document.getElementById("btn-search").addEventListener("click", () => {
+  activeRemove();
   const input = document.getElementById("btn-input");
   const searchValue = input.value.trim().toLowerCase();
   console.log(searchValue);
+
+  fetch("https://openapi.programming-hero.com/api/words/all")
+    .then((res) => res.json())
+    .then((data) => {
+      const allWords = data.data;
+      const filterWords = allWords.filter((words) =>
+        words.word.toLowerCase().includes(searchValue)
+      );
+      displayLevelWord(filterWords);
+    });
 });
